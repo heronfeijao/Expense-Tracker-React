@@ -1,6 +1,7 @@
 import Expenses from "./components/Expenses/Expenses.jsx";
+import NewExpense from "./components/NewExpense/NewExpense.jsx";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -25,9 +26,10 @@ function App() {
 
   return (
     <div>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
