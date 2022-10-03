@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card.jsx";
+import Card from "../UI/Card.jsx";
 import ExpenseItem from "./ExpenseItem.jsx";
 import "./Expenses.css";
 
