@@ -7,22 +7,28 @@ import "./Expenses.css";
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState(2022);
 
-  const expenseItems = props.items.map((item) => {
-    console.log(item);
-    return (
-      <ExpenseItem
-        key={item.id}
-        title={item.title}
-        amount={item.amount}
-        date={item.date}
-      />
+  const filteredExpenses = props.items.filter(
+    (exp) => exp.date.getFullYear() === Number(filteredYear)
+  );
+
+  const expensesContent =
+    filteredExpenses > 0 ? (
+      filteredExpenses.map((item) => (
+        <ExpenseItem
+          key={item.id}
+          title={item.title}
+          amount={item.amount}
+          date={item.date}
+        />
+      ))
+    ) : (
+      <p>No expense items.</p>
     );
-  });
 
   return (
     <Card className="expenses">
       <ExpensesFilter selected={filteredYear} changeYear={setFilteredYear} />
-      {expenseItems}
+      {expensesContent}
     </Card>
   );
 };
